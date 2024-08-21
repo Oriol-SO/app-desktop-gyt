@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="126.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.java.desktopApp.controllers.component.ViewPersona">
+   <children>
+      <Label fx:id="labelPersonaMombre" layoutX="34.0" layoutY="31.0" prefHeight="28.0" prefWidth="552.0">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="34.0" layoutY="14.0" text="Interesado" />
+      <Label fx:id="labelCodigo" layoutX="34.0" layoutY="55.0" prefHeight="28.0" prefWidth="552.0" text="Cod: " textFill="#1b27ff">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="labelEscuela" layoutX="34.0" layoutY="73.0" text="esc:" textFill="#f28622">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

@@ -1,0 +1,33 @@
+.sidevar-button{
+   -fx-background-color :#0a1432;
+   -fx-text-fill : #ffffff;
+}
+.sidevar-button:hover{
+   -fx-background-color :#333d5a;
+}
+.sidevar-button:pressed{
+   -fx-background-color :#273c7b;
+   -fx-text-fill : #36bfff;
+}
+.sidevar-buuton-selected{
+   -fx-background-color :#273c7b;
+   -fx-text-fill : #36bfff;
+}
+
+/*para los botones de las fases*/
+
+.boton-faseTramite{
+       -fx-background-color :#f0f2f5;
+       -fx-text-fill : #000;
+}
+.boton-faseTramite:hover{
+   -fx-background-color :#97a9dd;
+}
+.boton-faseTramite:pressed{
+   -fx-background-color :#33476b;
+   -fx-text-fill : #000000;
+}
+.boton-faseTramite-selected{
+   -fx-background-color :#5b7c9f;
+   -fx-text-fill : #000000;
+}
