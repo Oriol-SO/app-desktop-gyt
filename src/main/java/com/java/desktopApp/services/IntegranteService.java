@@ -36,6 +36,7 @@ public class IntegranteService {
                         .fec_inicio(integrante.getFec_inicio())
                         .uso(integrante.isUso())
                         .estado(integrante.isEstado())
+                        .tramite_id(integrante.getTramite_id())
                         .tramite(tramiteService.get_tramite(integrante.getTramite_id()))
                         .build()
 

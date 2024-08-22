@@ -20,6 +20,7 @@ public class IntegranteDTO {
     private boolean uso;
     private boolean estado;
     private Date fec_inicio;
+    private Long tramite_id;
 
     private TramiteDTO tramite;
     private PersonaDTO persona;

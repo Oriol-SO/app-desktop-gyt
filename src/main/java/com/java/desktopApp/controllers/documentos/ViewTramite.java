@@ -12,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -30,7 +31,7 @@ public class ViewTramite implements Initializable {
     private Label labelTipoTramite,labelEstado,labelInicio,labelEnviado,labelNumIntegrantes,labelFaseActual;
 
     @FXML
-    private BorderPane boxBorderPane;
+    private VBox boxBorderPane;
 
     private  IntegranteDTO integrante;
     private TramiteDTO tramite;
@@ -69,7 +70,7 @@ public class ViewTramite implements Initializable {
         Parent view = vista.getLoader().load();
         listFase item = vista.getLoader().getController();
         item.setInfo(this.integrante);
-        boxBorderPane.setCenter(view);
+        boxBorderPane.getChildren().add(view);
         //boxBorderPane.getChildren().add(view);
     }
 

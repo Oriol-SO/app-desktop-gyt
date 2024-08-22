@@ -2,81 +2,90 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="boxBorderPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="573.0" prefWidth="904.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.java.desktopApp.controllers.documentos.ViewTramite">
-   <top>
-      <VBox prefWidth="904.0" BorderPane.alignment="CENTER">
+
+<VBox fx:id="boxBorderPane" minHeight="-Infinity" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.java.desktopApp.controllers.documentos.ViewTramite">
+   <children>
+      <VBox>
          <children>
-            <Label fx:id="labelTipoTramite" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefWidth="515.0" text="titulo profesional (sustentacion de tesis) dasdsds" textFill="#4d4de8" wrapText="true">
+            <Label fx:id="labelTipoTramite" maxHeight="-Infinity" minHeight="-Infinity" text="titulo profesional (sustentacion de tesis) dasdsds" textFill="#4d4de8" wrapText="true">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <HBox prefHeight="30.0" prefWidth="904.0">
+            <HBox spacing="7.0">
                <children>
-                  <HBox prefHeight="30.0" prefWidth="107.0">
+                  <HBox>
                      <children>
-                        <Label prefHeight="25.0" prefWidth="45.0" text="Estado:" textFill="#616161">
-                           <font>
-                              <Font name="System Bold" size="12.0" />
-                           </font></Label>
-                        <Label fx:id="labelEstado" layoutX="10.0" layoutY="10.0" prefHeight="22.0" prefWidth="59.0" text="Retirado">
-                           <font>
-                              <Font name="System Bold" size="12.0" />
-                           </font></Label>
-                     </children>
-                  </HBox>
-                  <HBox layoutX="10.0" layoutY="10.0" prefHeight="41.0" prefWidth="116.0">
-                     <children>
-                        <Label prefHeight="25.0" prefWidth="39.0" text="Inicio:" textFill="#92109c">
-                           <font>
-                              <Font name="System Bold" size="12.0" />
-                           </font></Label>
-                        <Label fx:id="labelInicio" layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="77.0" text="2024-04-24">
-                           <font>
-                              <Font name="System Bold" size="12.0" />
-                           </font></Label>
-                     </children>
-                  </HBox>
-                  <HBox layoutX="149.0" layoutY="10.0" prefHeight="22.0" prefWidth="229.0">
-                     <children>
-                        <Label prefHeight="22.0" prefWidth="56.0" text="Enviado:" textFill="#2e5cc9">
+                        <Label prefHeight="25.0" text="Estado:" textFill="#616161">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Label>
-                        <Label fx:id="labelEnviado" layoutX="10.0" layoutY="10.0" prefHeight="22.0" prefWidth="137.0" text="2024-04-24">
+                        <Label fx:id="labelEstado" layoutX="10.0" layoutY="10.0" prefHeight="22.0" text="Retirado">
                            <font>
                               <Font name="System Bold" size="12.0" />
-                           </font></Label>
+                           </font>
+                        </Label>
                      </children>
                   </HBox>
-                  <HBox layoutX="277.0" layoutY="10.0" prefHeight="30.0" prefWidth="103.0">
+                  <HBox layoutX="10.0" layoutY="10.0" prefHeight="41.0">
                      <children>
-                        <Label prefHeight="25.0" prefWidth="75.0" text="Fase Actual:" textFill="#1a7c53">
+                        <Label prefHeight="25.0" text="Inicio:" textFill="#92109c">
                            <font>
                               <Font name="System Bold" size="12.0" />
-                           </font></Label>
-                        <Label fx:id="labelFaseActual" layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="20.0" text="5">
+                           </font>
+                        </Label>
+                        <Label fx:id="labelInicio" layoutX="10.0" layoutY="10.0" prefHeight="25.0" text="2024-04-24">
                            <font>
                               <Font name="System Bold" size="12.0" />
-                           </font></Label>
+                           </font>
+                        </Label>
                      </children>
                   </HBox>
-                  <HBox layoutX="361.0" layoutY="10.0" prefHeight="30.0" prefWidth="100.0">
+                  <HBox layoutX="149.0" layoutY="10.0" prefHeight="22.0">
+                     <children>
+                        <Label prefHeight="22.0" text="Enviado:" textFill="#2e5cc9">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="labelEnviado" layoutX="10.0" layoutY="10.0" prefHeight="22.0" text="2024-04-24">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="277.0" layoutY="10.0" prefHeight="30.0">
+                     <children>
+                        <Label prefHeight="25.0" text="Fase Actual:" textFill="#1a7c53">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="labelFaseActual" layoutX="10.0" layoutY="10.0" prefHeight="25.0" text="5">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="361.0" layoutY="10.0" prefHeight="30.0">
                      <children>
                         <Label prefHeight="22.0" prefWidth="71.0" text="Integrantes:" textFill="#a46f2d">
                            <font>
                               <Font name="System Bold" size="12.0" />
-                           </font></Label>
+                           </font>
+                        </Label>
                         <Label fx:id="labelNumIntegrantes" layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="24.0" text="1">
                            <font>
                               <Font name="System Bold" size="12.0" />
-                           </font></Label>
+                           </font>
+                        </Label>
                      </children>
                   </HBox>
                </children>
@@ -86,5 +95,5 @@
             <Insets left="10.0" right="10.0" top="10.0" />
          </padding>
       </VBox>
-   </top>
-</BorderPane>
+   </children>
+</VBox>

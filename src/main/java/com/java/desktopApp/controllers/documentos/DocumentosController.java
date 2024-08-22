@@ -31,7 +31,10 @@ public class DocumentosController implements Initializable {
      private TextField txtCodigo;
 
      @FXML
-     private Pane panelresult,paneInfoTramite;
+     private Pane panelresult;
+
+     @FXML
+     private VBox paneInfoTramite;
 
      @FXML
      private VBox panellisttramites;

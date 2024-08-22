@@ -6,26 +6,22 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="1.7976931348623157E308"
-      maxWidth="1.7976931348623157E308"
-      minHeight="-Infinity" prefHeight="80.0" style="-fx-border-color: grey; -fx-border-radius: 10;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.java.desktopApp.controllers.documentos.ItemIntegrante"
->
+<Pane minHeight="-Infinity" style="-fx-border-color: grey; -fx-border-radius: 10;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.java.desktopApp.controllers.documentos.ItemIntegrante">
    <children>
-      <Label fx:id="labeltipoTramite" layoutX="14.0" layoutY="1.0" text="BACHILLER AUTOMATICO" textFill="#155bff">
+      <Label fx:id="labeltipoTramite" layoutX="14.0" layoutY="1.0" maxWidth="-Infinity" prefWidth="184.0" text="BACHILLER AUTOMATICO" textFill="#155bff" wrapText="true">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="labelEstado" layoutX="14.0" layoutY="27.0" text="Retirado" textFill="#e10101" />
-      <Button layoutX="14.0" layoutY="44.0" mnemonicParsing="false" onAction="#openTramite" style="-fx-background-color: #00e676;" text="Abrir" textFill="WHITE">
+      <Label fx:id="labelEstado" layoutX="16.0" layoutY="19.0" text="Retirado" textFill="#e10101" />
+      <Button layoutX="13.0" layoutY="36.0" mnemonicParsing="false" onAction="#openTramite" style="-fx-background-color: #00e676;" text="Abrir" textFill="WHITE">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Button>
-      <Label fx:id="labelFechaInicio" layoutX="93.0" layoutY="27.0" text="2020-04-23" textFill="#8e15eb" />
+      <Label fx:id="labelFechaInicio" layoutX="73.0" layoutY="19.0" text="2020-04-23" textFill="#8e15eb" />
    </children>
    <padding>
-      <Insets left="10.0" right="10.0" />
+      <Insets bottom="5.0" left="10.0" right="10.0" />
    </padding>
 </Pane>

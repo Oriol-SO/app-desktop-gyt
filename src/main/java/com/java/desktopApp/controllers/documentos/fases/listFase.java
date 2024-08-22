@@ -36,7 +36,7 @@ public class listFase {
     private IntegranteService integranteService;
 
     @FXML
-    private Pane panel;
+    private VBox panel;
     @FXML
     private VBox VboxListFases;
 

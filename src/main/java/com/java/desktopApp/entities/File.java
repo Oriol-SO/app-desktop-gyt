@@ -16,7 +16,7 @@ public class File {
     private Long id;
     private String path;
     private Timestamp fecha,updated_at;
-    private boolean estado,voucher;
+    private Boolean estado,voucher;
     private  Long tramite_id,integrante_id,faserolreq_id,solicitud_id;
 
 }

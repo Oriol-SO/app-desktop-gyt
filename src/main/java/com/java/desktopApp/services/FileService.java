@@ -14,8 +14,22 @@ public class FileService {
     @Autowired
     private FileRepository fileRepository;
 
-    public List<FileTDO> getListDocumentosFase(Long fase_id,Long Integrante_id){
-        //obtenemos los faserol_requisitos;
-        return new ArrayList<>();
+    public List<FileTDO> getListDocumentosReq(Long faserolreq_id,Long tramite_id){
+        List<FileTDO> files=fileRepository.findByTramiteAndReq(faserolreq_id,tramite_id).stream().map(
+                file -> FileTDO.builder()
+                        .id(file.getId())
+                        .path(file.getPath())
+                        .fecha(file.getFecha())
+                        .estado(file.getEstado())
+                        .tramite_id(file.getTramite_id())
+                        .integrante_id(file.getIntegrante_id())
+                        .faserolreq_id(file.getFaserolreq_id())
+                        .solicitud_id(file.getSolicitud_id())
+                        .voucher(file.getVoucher())
+                        .build()
+        ).toList();
+
+        return files;
     }
+
 }
