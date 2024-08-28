@@ -18,5 +18,13 @@ public class FileTDO {
     private Boolean estado,voucher;
     private  Long tramite_id,integrante_id,faserolreq_id,solicitud_id;
 
+    private AprobadoDTO aprobado;
+    private ObservadoDTO observado;
+
+    private boolean call_aprobado=false;
+    private boolean call_observado=false;
+
+
+
     private FaseRequisitoTDO requisito;
 }

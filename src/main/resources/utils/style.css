@@ -31,3 +31,16 @@
    -fx-background-color :#5b7c9f;
    -fx-text-fill : #000000;
 }
+.boton-copiar-pathfile{
+   -fx-background-color :#000;
+   -fx-text-fill : #fff;
+}
+
+.boton-copiar-pathfile:hover{
+   -fx-background-color :#9fa2ab;
+}
+
+.boton-copiar-pathfile:pressed{
+   -fx-background-color :#beccf5;
+   -fx-text-fill : #dadada;
+}

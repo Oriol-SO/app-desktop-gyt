@@ -53,10 +53,17 @@ public class ViewFase {
     public void setInfo(FaseDTO fase_, IntegranteDTO integrante){
         this.fase=fase_;
         this.inte=integrante;
+
         labelNombre.setText(fase.getNumero()+". "+fase.getNombre());
         tiempo=searchTiempo(integrante.getListTiempos(),fase.getNumero());
-        labelFechaInicio.setText(tiempo.getFecha_inicio().toString());
-        labelFechaFin.setText(tiempo.getFecha_fin().toString());
+        if(tiempo!=null){
+            labelFechaInicio.setText(tiempo.getFecha_inicio().toString());
+            labelFechaFin.setText(tiempo.getFecha_fin()!=null?tiempo.getFecha_fin().toString():"null");
+        }else{
+            labelFechaInicio.setText("null");
+            labelFechaFin.setText("null");
+        }
+
     }
 
 
@@ -73,7 +80,7 @@ public class ViewFase {
             Parent view=vista.getLoader().load();
 
             ViewRequisito viewRequisito=vista.getLoader().getController();
-            viewRequisito.setInfo(req,this.inte,i);
+            viewRequisito.setInfo(req,this.inte,i++);
             boxListRequisitos.getChildren().add(view);
            /* Button boton=new Button((i++)+ ". "+req.getNombre());
             boton.getStyleClass().add("boton-faseTramite");

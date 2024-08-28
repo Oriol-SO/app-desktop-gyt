@@ -100,8 +100,9 @@ public class listFase {
 
         //buscar en la lista de fases el id
         Optional<FaseDTO> Opfase= listFase.stream()
-                .filter(obj->obj.getId()==id)
+                .filter(obj->obj.getId().equals(id))
                 .findFirst();
+
         try {
             if (Opfase.isPresent()) {
                 FaseDTO fase = Opfase.get();
