@@ -9,6 +9,8 @@ import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.VBox;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
@@ -22,11 +24,11 @@ public class ItemIntegrante {
     @FXML
     private Label labeltipoTramite,labelEstado,labelFechaInicio;
 
-    private Pane panelDetailsTramite;
+    private VBox panelDetailsTramite;
 
     private IntegranteDTO integrante;
 
-    public void setInfo(IntegranteDTO integranteDTO, Pane panelInfoIntegrante){
+    public void setInfo(IntegranteDTO integranteDTO, VBox panelInfoIntegrante){
         this.integrante=integranteDTO;
         this.panelDetailsTramite=panelInfoIntegrante;
 

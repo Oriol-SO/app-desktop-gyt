@@ -11,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,7 @@ import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.HashMap;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -48,6 +50,7 @@ public class DocumentosController implements Initializable {
              labelError.setText("");
              panelresult.getChildren().clear();
              panellisttramites.getChildren().clear();
+             paneInfoTramite.getChildren().clear();
 
              PersonaDTO inte=tramiteManager.searchTramite(txtCodigo.getText());
              if(inte != null){

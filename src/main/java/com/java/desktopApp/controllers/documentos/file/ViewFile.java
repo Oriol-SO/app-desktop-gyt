@@ -1,32 +1,28 @@
 package com.java.desktopApp.controllers.documentos.file;
 
 import com.java.desktopApp.exceptions.AppException;
-import com.java.desktopApp.services.DTO.AprobadoDTO;
 import com.java.desktopApp.services.DTO.FileTDO;
-import com.java.desktopApp.services.DTO.ObservadoDTO;
 import com.java.desktopApp.services.FileService;
 import com.java.desktopApp.services.FtpService;
+
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.URL;
-import java.sql.Time;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ResourceBundle;
 
 @Component
-public class ViewFile implements Initializable {
+public class ViewFile{
 
     @Autowired
     private FtpService ftpService;
@@ -35,21 +31,13 @@ public class ViewFile implements Initializable {
 
     @FXML
     private Label labelPath,labelFechaFile,labelFechaAprobado,labelFechaObservado,labeltextObs,labelEstadoFile;
-
     @FXML
     private TextField dateFechaFile, dateFechaAprobado;
-
     @FXML
-    private Button btnTextRoute,btnEnviar;
+    private Button btnTextRoute,btnEnviar,buttonUpdateFechaRev;
 
     private File selectedFile;
-
-
     private FileTDO file;
-
-    private ObservadoDTO observado;
-
-    private AprobadoDTO aprobadoDTO;
 
     public void setInfo(FileTDO doc){
         this.file=doc;
@@ -80,6 +68,8 @@ public class ViewFile implements Initializable {
             dateFechaAprobado.setText(file.getAprobado().getCreated_at().toString());
         }else{
             labelFechaAprobado.setText("--sin aprobar--");
+            dateFechaAprobado.setDisable(true);
+            buttonUpdateFechaRev.setDisable(true);
         }
         if(file.getObservado()!=null){
             labelFechaObservado.setText("Observado: "+file.getObservado().getCreated_at().toString());
@@ -91,7 +81,6 @@ public class ViewFile implements Initializable {
 
 
     }
-
 
     @FXML
     public void btnCambiarPath(ActionEvent event) {
@@ -122,26 +111,18 @@ public class ViewFile implements Initializable {
             @Override
             protected void succeeded() {
                 renderInfo();
-
                 selectedFile=null;
                 btnTextRoute.setText("Select archivo");
                 btnEnviar.setDisable(true);
                 btnEnviar.setText("Enviar archivo");
-
-                Alert alert =new Alert(Alert.AlertType.CONFIRMATION);
-                alert.setTitle("carga exitos");
-                alert.setContentText("Se subio el archivo correctamente");
-                alert.show();
-
+                renderAlert(Alert.AlertType.CONFIRMATION,"carga exitosa","Se subió correctamente el archivo");
             }
 
             @Override
             protected void failed() {
-                Alert alert =new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Error service upload file");
                 Throwable exception =getException();
-                alert.setContentText(exception.getMessage());
-                alert.show();
+                renderAlert(Alert.AlertType.ERROR,"Error upload file",exception.getMessage());
+
                 btnEnviar.setDisable(false);
                 btnEnviar.setText("Enviar archivo");
             }
@@ -159,12 +140,10 @@ public class ViewFile implements Initializable {
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.S");
                 LocalDateTime localDateTime = LocalDateTime.parse(fecha, formatter);
                 Timestamp date = Timestamp.valueOf(localDateTime);
+                setUpdateDate(1,date);
             }
         }catch(Exception e){
-            Alert alert =new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error formated fecha file");
-            alert.setContentText(e.getMessage());
-            alert.show();
+            renderAlert(Alert.AlertType.ERROR,"Error update fecha file",e.getMessage());
         }
     }
 
@@ -177,17 +156,47 @@ public class ViewFile implements Initializable {
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.S");
                 LocalDateTime localDateTime = LocalDateTime.parse(fecha, formatter);
                 Timestamp date = Timestamp.valueOf(localDateTime);
+                setUpdateDate(2,date);
             }
         }catch (Exception e){
-            Alert alert =new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error formated fecha aprobación");
-            alert.setContentText(e.getMessage());
-            alert.show();
+            renderAlert(Alert.AlertType.ERROR,"Error update fecha aprobación",e.getMessage());
         }
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        //renderInfo();
+    private void setUpdateDate(int tipo,Timestamp date){
+        Task<Void> taskUpdate = new Task<Void>() {
+            @Override
+            protected Void call() {
+                try{
+                    if(tipo==1){
+                        file=fileService.updateFechaFile(file,date);
+                    }else if(tipo==2){
+                        file=fileService.updateFechaApro(file,date);
+                    }
+                }catch (Exception e){
+                    throw new AppException(e.getMessage());
+                }
+                return null;
+            }
+            @Override
+            protected void succeeded() {
+                renderInfo();
+                renderAlert(Alert.AlertType.CONFIRMATION,tipo==1?"Fecha file":"Fecha Aprobación","Fecha actualizada con exito a :"+date);
+            }
+
+            @Override
+            protected void failed() {
+                Throwable exception =getException();
+                renderAlert(Alert.AlertType.ERROR,"Error update fecha",exception.getMessage());
+            }
+        };
+        new Thread(taskUpdate).start();
     }
+    private  void renderAlert(Alert.AlertType type, String title, String message){
+        Alert alert =new Alert(type);
+        alert.setTitle(title);
+        alert.setContentText(message);
+        alert.show();
+    }
+
 }

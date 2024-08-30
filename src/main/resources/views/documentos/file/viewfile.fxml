@@ -71,7 +71,7 @@
             <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="35.0" spacing="10.0">
                <children>
                   <TextField fx:id="dateFechaAprobado" />
-                  <Button mnemonicParsing="false" onAction="#btnFechaRev" style="-fx-background-color: #45cc55;" text="actualizar fecha aprobado" />
+                  <Button fx:id="buttonUpdateFechaRev" mnemonicParsing="false" onAction="#btnFechaRev" style="-fx-background-color: #45cc55;" text="actualizar fecha aprobado" />
                </children>
             </HBox>
          </children>

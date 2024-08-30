@@ -12,6 +12,7 @@ import com.java.desktopApp.services.DTO.ObservadoDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -96,6 +97,29 @@ public class FileService {
     public FileTDO addDateObs(FileTDO file){
         file.setObservado(getObservado(file.getId()));
         file.setCall_observado(true);
+        return file;
+    }
+
+    public FileTDO updateFechaFile(FileTDO file, Timestamp fecha){
+        File fil=fileRepository.findById(file.getId()).get();
+        fil.setFecha(fecha);
+        fileRepository.save(fil);
+
+        file.setFecha(fecha);
+        return file;
+    }
+
+    public FileTDO updateFechaApro(FileTDO file, Timestamp fecha){
+        if(file.getAprobado()!=null) {
+            Aprobado apro = new Aprobado();
+
+            apro.setCreated_at(fecha);
+            apro.setId(file.getAprobado().getId());
+            apro.setFile_id(file.getId());
+
+            aprobadoRepository.save(apro);
+            file.getAprobado().setCreated_at(fecha);
+        }
         return file;
     }
 }

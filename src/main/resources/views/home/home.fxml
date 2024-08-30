@@ -13,28 +13,20 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="710.0" prefWidth="1352.0" style="-fx-background-color: #fff;" stylesheets="@../../utils/style.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.java.desktopApp.controllers.home.HomeController">
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="710.0" prefWidth="1352.0" stylesheets="@../../utils/style.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.java.desktopApp.controllers.home.HomeController">
     <children>
       <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="508.0" prefWidth="1193.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
               <StackPane fx:id="panelshow" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="458.0" prefWidth="516.0" BorderPane.alignment="CENTER" />
          </center>
-         <left>
-            <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-               <center>
-                    <VBox fx:id="sidevarButtons" maxHeight="1.7976931348623157E308" prefHeight="418.0" prefWidth="208.0" style="-fx-background-color: #0a1432;" BorderPane.alignment="CENTER">
-                        <children>
-                        <ImageView fitHeight="66.0" fitWidth="173.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../utils/img/undac%20system.png" />
-                           </image>
-                           <VBox.margin>
-                              <Insets bottom="15.0" left="5.0" right="5.0" top="15.0" />
-                           </VBox.margin>
-                        </ImageView>
-                            <Button fx:id="btnOverview" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="40.0" prefWidth="257.0" styleClass="sidevar-button" text="Inicio" textFill="WHITE">
+         <top>
+            <VBox alignment="CENTER" prefHeight="20.0" prefWidth="1352.0" style="-fx-background-color: #0a1432;" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="64.0" prefWidth="200.0">
+                     <children>
+                            <Button fx:id="btnInicio" alignment="BASELINE_LEFT" graphicTextGap="5.0" maxHeight="-Infinity" mnemonicParsing="false" onAction="#handleClicks" prefHeight="17.0" prefWidth="96.0" style="-fx-border-color: #90edff; -fx-border-radius: 5;" styleClass="sidevar-button" text="Inicio" textFill="WHITE">
                                 <graphic>
-                                    <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
                                         <image>
                                             <Image url="@../../utils/icons/icons8_Home_32px.png" />
                                         </image>
@@ -43,86 +35,28 @@
                                 <opaqueInsets>
                                     <Insets />
                                 </opaqueInsets>
-                                <VBox.margin>
-                                    <Insets />
-                                </VBox.margin>
                            <font>
                               <Font size="15.0" />
                            </font>
+                           <HBox.margin>
+                              <Insets left="5.0" right="15.0" />
+                           </HBox.margin>
                             </Button>
-                            <Button fx:id="btnDatos" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="42.0" prefWidth="259.0" styleClass="sidevar-button" text="Datos" textFill="#fcfcfc">
-                                <graphic>
-                                    <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
-                                        <image>
-                                            <Image url="@../../utils/icons/icons8_Xbox_Menu_32px.png" />
-                                        </image>
-                                    </ImageView>
-                                </graphic>
+                              <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                                  <image>
+                                      <Image url="@../../utils/icons/icons8_Person_32px.png" />
+                                  </image>
+                              </ImageView>
+                        <Label fx:id="username" alignment="CENTER" contentDisplay="CENTER" text="User Admin" textFill="#90edff">
                            <font>
-                              <Font size="15.0" />
+                              <Font name="System Bold" size="14.0" />
                            </font>
-                            </Button>
-                            <Button fx:id="btnDocumentos" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="42.0" prefWidth="259.0" styleClass="sidevar-button" text="Gestion doc" textFill="WHITE">
-                                <graphic>
-                                    <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
-                                        <image>
-                                            <Image url="@../../utils/icons/icons8_Box_32px.png" />
-                                        </image>
-                                    </ImageView>
-                                </graphic>
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                            </Button>
-                            <Button fx:id="btnSettings" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="42.0" prefWidth="259.0" styleClass="sidevar-button" text="Settings" textFill="WHITE">
-                                <graphic>
-                                    <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
-                                        <image>
-                                            <Image url="@../../utils/icons/icons8_Slider__32px.png" />
-                                        </image>
-                                    </ImageView>
-                                </graphic>
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                            </Button>
-                            <Button fx:id="btnSignout" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="42.0" prefWidth="259.0" styleClass="sidevar-button" text="Sign Out" textFill="WHITE">
-                                <graphic>
-                                    <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
-                                        <image>
-                                            <Image url="@../../utils/icons/icons8_Sign_Out_32px.png" />
-                                        </image>
-                                    </ImageView>
-                                </graphic>
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                            </Button>
-                        </children>
-                    </VBox>
-               </center>
-               <bottom>
-                  <VBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #0a1432;" BorderPane.alignment="CENTER">
-                     <children>
-                        <HBox alignment="CENTER_LEFT" prefHeight="64.0" prefWidth="200.0">
-                           <children>
-                                    <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
-                                        <image>
-                                            <Image url="@../../utils/icons/icons8_Person_32px.png" />
-                                        </image>
-                                    </ImageView>
-                              <Label fx:id="username" alignment="CENTER" contentDisplay="CENTER" text="User Admin" textFill="WHITE">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </HBox>
+                        </Label>
                      </children>
-                  </VBox>
-               </bottom>
-            </BorderPane>
-         </left>
+                  </HBox>
+               </children>
+            </VBox>
+         </top>
       </BorderPane>
     </children>
     <effect>

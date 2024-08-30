@@ -1,6 +1,7 @@
 package com.java.desktopApp.controllers.home;
 
 import com.java.desktopApp.config.ViewManager;
+import com.java.desktopApp.controllers.dashboard.DashboardController;
 import com.java.desktopApp.models.Auth;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -27,10 +28,7 @@ public class HomeController implements Initializable {
     private Label username;
 
     @FXML
-    private Button btnOverview,btnDatos,btnDocumentos;
-
-    @FXML
-    private VBox sidevarButtons;
+    private Button btnInicio;//,btnDatos,btnDocumentos;
 
     @FXML
     private StackPane panelshow;
@@ -40,30 +38,16 @@ public class HomeController implements Initializable {
     @FXML
     public void handleClicks(ActionEvent actionEvent) throws IOException {
         //resetar los estilos de los botones
-        for (Node node: sidevarButtons.getChildren()){
+        /*for (Node node: sidevarButtons.getChildren()){
             if(node instanceof Button){
                setStyleButton( ((Button) node),false);
             }
-        }
-        if (actionEvent.getSource() == btnOverview) {
-            setStyleButton(btnOverview,true);
+        }*/
+        if (actionEvent.getSource() == btnInicio) {
+            //setStyleButton(btnInicio,true);
             //CAMBIAR AL INICIO
             changuePanel("/views/dashboard/inicio.fxml");
-        } else if (actionEvent.getSource()== btnDatos) {
-            setStyleButton(btnDatos,true);
-            //CAMBIAR AL PANEL DE DATOS
-            changuePanel("/views/datos/datos.fxml");
-
-        }else if (actionEvent.getSource()== btnDocumentos) {
-            setStyleButton(btnDocumentos,true);
-            //CAMBIAR AL PANEL DE DATOS
-            changuePanel("/views/documentos/gestiondocumentos.fxml");
-
         }
-        else{
-            System.out.println("error");
-        }
-
     }
 
     private void setStyleButton(Button btn,boolean type){
@@ -79,7 +63,12 @@ public class HomeController implements Initializable {
         vista.loadfxml(pathfxml);
         vista.addLoaderContext();
         Parent viewinicio=vista.getLoader().load();
+
+        DashboardController dash=vista.getLoader().getController();
+        dash.setPanel(panelshow);
+
         panelshow.getChildren().setAll(viewinicio);
+
     }
 
     private void setUserName(){
@@ -89,7 +78,7 @@ public class HomeController implements Initializable {
 
     private void setViewInicio() throws IOException {
         //seleccionar el btn
-        setStyleButton(btnOverview,true);
+        //setStyleButton(btnInicio,true);
         changuePanel("/views/dashboard/inicio.fxml");
     }
 

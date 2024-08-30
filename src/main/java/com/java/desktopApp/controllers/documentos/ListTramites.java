@@ -14,9 +14,9 @@ public class ListTramites  {
 
 
     private VBox boxlisttramites;
-    private Pane paneInfoTramite;
+    private VBox paneInfoTramite;
 
-    public void  setBoxlisttramites(VBox box, Pane panelinfotramite){
+    public void  setBoxlisttramites(VBox box, VBox panelinfotramite){
         boxlisttramites=box;
         paneInfoTramite=panelinfotramite;
     }

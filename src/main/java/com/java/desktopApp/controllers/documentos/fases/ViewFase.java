@@ -8,20 +8,25 @@ import com.java.desktopApp.services.DTO.TiempoDTO;
 import com.java.desktopApp.services.FaseRequisitoService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.List;
 import java.util.Optional;
+import java.util.ResourceBundle;
 
 @Component
-public class ViewFase {
+public class ViewFase implements Initializable {
 
     @Autowired
     private FaseRequisitoService faseRequisitoService;
@@ -31,6 +36,8 @@ public class ViewFase {
     private Label labelNombre,labelFechaInicio,labelFechaFin;
     @FXML
     private VBox boxListRequisitos;
+    @FXML
+    private BorderPane infoViewFase;
 
     private TiempoDTO tiempo;
     private FaseDTO fase;
@@ -92,5 +99,10 @@ public class ViewFase {
             boton.setMinHeight(Double.NEGATIVE_INFINITY);*/
 
         }
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        VBox.setVgrow(infoViewFase, Priority.ALWAYS);
     }
 }

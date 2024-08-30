@@ -8,33 +8,34 @@ import com.java.desktopApp.services.IntegranteService;
 import com.java.desktopApp.services.TramiteService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.List;
 import java.util.Optional;
+import java.util.ResourceBundle;
 
 @Component
-public class listFase {
+public class listFase implements Initializable {
 
     @Autowired
     private TramiteService tramiteService;
 
     @Autowired
     private IntegranteService integranteService;
-
+    @FXML
+    private BorderPane boxinfofases;
     @FXML
     private VBox panel;
     @FXML
@@ -123,4 +124,8 @@ public class listFase {
     }
 
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        VBox.setVgrow(boxinfofases,Priority.ALWAYS);
+    }
 }

@@ -44,3 +44,33 @@
    -fx-background-color :#beccf5;
    -fx-text-fill : #dadada;
 }
+
+
+.boton-dashboard{
+   -fx-font-size:18;
+   -fx-font-weight:800;
+
+}
+
+.boton-dashboard-tramites{
+   -fx-background-color: #ffe5c7;
+   -fx-text-fill:#e5730e;
+}
+
+.boton-dashboard-datos{
+   -fx-background-color:  #90fbc3;
+   -fx-text-fill:#008651;
+}
+
+
+.boton-dashboard:hover{
+   -fx-font-size:23;
+   -fx-text-fill : #ffffff;
+   -fx-border-width:3;
+   -fx-border-color:#d0d0d0;
+}
+
+.boton-dashboard:pressed{
+   -fx-background-color :#9b9b9b98;
+   -fx-text-fill : #ffffff;
+}
