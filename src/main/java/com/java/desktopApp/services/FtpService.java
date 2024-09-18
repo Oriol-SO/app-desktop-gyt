@@ -52,6 +52,7 @@ public class FtpService {
 
     private FTPClient conect() throws IOException {
         FTPClient ftpClient = new FTPClient();
+        ftpClient.setControlEncoding("UTF-8");
         ftpClient.connect(server, port);
         ftpClient.login(user, pass);
         ftpClient.enterLocalPassiveMode(); // Establecer el modo pasivo
@@ -105,10 +106,7 @@ public class FtpService {
         ftpClient.changeWorkingDirectory("requisitos/1931");
         FTPFile[] directories = ftpClient.listDirectories();
 
-        System.out.println("Directorios " +  ":");
-        for (FTPFile dir : directories) {
-            System.out.println(dir.getName());
-        }
+
     }
 
 

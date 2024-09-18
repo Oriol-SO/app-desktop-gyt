@@ -33,6 +33,10 @@ public class DeleteFile {
     private FTPFile file;
     @FXML
     public void btnSearchPath(ActionEvent event) throws IOException {
+        if(txtPath.getText().isBlank() || txtPath.getText().isEmpty()){
+            labelError.setText("Ingrese una ruta valida");
+            return;
+        }
         file=ftpService.search_path(txtPath.getText());
         labelError.setText("");
         labelDate.setText("");
@@ -45,7 +49,7 @@ public class DeleteFile {
             labelDate.setText("MODIFIED: "+file.getTimestamp().getTime().toString());
             idDelete.setDisable(false);
         }else{
-            labelError.setText("No se encontró el archivo");
+            labelError.setText("No se encontró el archivo: "+txtPath.getText());
             idDelete.setDisable(true);
         }
     }

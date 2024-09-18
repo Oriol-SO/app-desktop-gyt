@@ -45,8 +45,8 @@ public class ItemFile {
     }
 
 
-    private final String urlpage="https://jovial-shannon.209-126-85-157.plesk.page" ;
-    //private final String urlpage="https://gradostitulos.undac.edu.pe" ;
+    //private final String urlpage="https://jovial-shannon.209-126-85-157.plesk.page" ;
+    private final String urlpage="https://gradostitulos.undac.edu.pe" ;
     @FXML
     public void botonCopiar(ActionEvent event){
         String urlToCopy = urlpage+file.getPath();
