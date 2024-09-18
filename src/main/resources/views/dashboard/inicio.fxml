@@ -132,7 +132,7 @@
                               <String fx:value="boton-dashboard-tramites" />
                            </styleClass>
                         </Button>
-                        <Button alignment="CENTER" contentDisplay="CENTER" disable="true" graphicTextGap="22.0" layoutX="363.0" layoutY="41.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="200.0" style="-fx-background-color: #a9ddf9;" text="Modificar documentos" textAlignment="CENTER" textFill="#3d8ae1" wrapText="true">
+                        <Button fx:id="btnDeleteFile" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="22.0" layoutX="363.0" layoutY="41.0" mnemonicParsing="false" onAction="#handleClick" prefHeight="70.0" prefWidth="200.0" text="Eliminar archivo" textAlignment="CENTER" wrapText="true">
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font>
@@ -142,6 +142,10 @@
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
+                           <styleClass>
+                              <String fx:value="boton-dashboard" />
+                              <String fx:value="boton-dashboard-deleteFile" />
+                           </styleClass>
                         </Button>
                         <Button alignment="CENTER" contentDisplay="CENTER" disable="true" graphicTextGap="22.0" layoutX="457.0" layoutY="41.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="200.0" style="-fx-background-color: #90fbc3;" text="Eliminar Requisitos" textFill="#129049">
                            <font>

@@ -31,7 +31,7 @@ public class DashboardController{
     private Label labelnumtramites,labelnumusuarios;
 
     @FXML
-    private Button btnTramites,btnDatos;
+    private Button btnTramites,btnDatos,btnDeleteFile;
 
     private StackPane panelshow;
 
@@ -55,6 +55,8 @@ public class DashboardController{
             changuePanel("/views/documentos/gestiondocumentos.fxml");
         } else if (event.getSource()==btnDatos) {
             changuePanel("/views/datos/datos.fxml");
+        }else if(event.getSource()==btnDeleteFile){
+            changuePanel("/views/delete/deletefile.fxml");
         }
     }
 

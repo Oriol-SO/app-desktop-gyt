@@ -13,6 +13,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.SocketException;
+import java.util.Arrays;
 
 
 @Service
@@ -49,12 +50,16 @@ public class FtpService {
         }
     }
 
-    public FileTDO uploadFile(File file,FileTDO document) throws IOException {
+    private FTPClient conect() throws IOException {
         FTPClient ftpClient = new FTPClient();
         ftpClient.connect(server, port);
         ftpClient.login(user, pass);
         ftpClient.enterLocalPassiveMode(); // Establecer el modo pasivo
         ftpClient.setFileType(FTP.BINARY_FILE_TYPE);
+        return  ftpClient;
+    }
+    public FileTDO uploadFile(File file,FileTDO document) throws IOException {
+        FTPClient ftpClient=conect();
         String remothepathdel=getDirectory(document.getPath())+getFileName(document.getPath());
         String remotepath=getDirectory(document.getPath())+"R_"+getFileName(document.getPath());
         FileInputStream inputFile=new FileInputStream(file);
@@ -77,6 +82,15 @@ public class FtpService {
         String remotePath=getDirectory(path)+getFileName(path);
         boolean delete=ftpClient.deleteFile(remotePath);
         if (!delete){
+            throw new AppException("No se pudo eliminar el archivo "+path);
+        }
+        return delete;
+    }
+
+    public boolean deleteArchivo(String path) throws IOException {
+        FTPClient ftpClient=conect();
+        boolean delete=ftpClient.deleteFile(path);
+        if(!delete){
             throw new AppException("No se pudo eliminar el archivo "+path);
         }
         return delete;
@@ -115,4 +129,16 @@ public class FtpService {
     }
 
 
+
+    public FTPFile search_path(String path) throws IOException {
+        String remotePath=getDirectory(path)+getFileName(path);
+        FTPClient ftpClient=conect();
+        FTPFile[] files = ftpClient.listFiles(remotePath);
+
+        if(files.length >0){
+            return files[0];
+        }else{
+            return null;
+        }
+    }
 }

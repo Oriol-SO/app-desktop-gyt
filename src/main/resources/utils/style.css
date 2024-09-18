@@ -56,7 +56,10 @@
    -fx-background-color: #ffe5c7;
    -fx-text-fill:#e5730e;
 }
-
+.boton-dashboard-deleteFile{
+   -fx-background-color: #fbc1b0;
+   -fx-text-fill:#fe5729;
+}
 .boton-dashboard-datos{
    -fx-background-color:  #90fbc3;
    -fx-text-fill:#008651;
